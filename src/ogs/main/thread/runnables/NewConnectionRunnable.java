@@ -1,11 +1,14 @@
 package ogs.main.thread.runnables;
 
 import java.net.ServerSocket;
+import java.net.Socket;
 
 public class NewConnectionRunnable implements Runnable{
 
-	public NewConnectionRunnable(ServerSocket serverSocket) {
-		
+	Socket client = null;
+	
+	public NewConnectionRunnable(Socket client) {
+		this.client = client;
 	}
 	
 	@Override
