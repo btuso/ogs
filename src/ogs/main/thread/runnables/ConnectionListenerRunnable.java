@@ -17,10 +17,13 @@ public class ConnectionListenerRunnable implements Runnable{
 	
 	@Override
 	public void run() {
+		int i = 0;
 		 try {
 			 while(true){
+				 i++;
+				 System.out.println("Esperando al cliente "+i);
 	          Thread newConnectedClient = threadFactory.makeNewConnectionRunnableThread(serverSocket.accept());
-	          System.err.println("Nuevo cliente, arrancandolo");
+	          System.out.println("Nuevo cliente, arrancandolo");
 	          newConnectedClient.start();
 			 }
 	     } catch (IOException e) {
