@@ -20,11 +20,11 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		SocketServer socketServer = new SocketServer();
-		MapHelper pepe = new MapHelper();
+		MapHelper test = new MapHelper();
 		
 		
 		
-//		socketServer.startListening();
+		socketServer.startListening();
 	}
 
 }
