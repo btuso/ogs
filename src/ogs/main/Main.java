@@ -5,6 +5,7 @@ package ogs.main;
 
 import java.net.Socket;
 
+import ogs.main.helpers.ItemHelper;
 import ogs.main.helpers.MapHelper;
 import ogs.main.helpers.PlayerHelper;
 import ogs.main.server.connection.SocketServer;
@@ -20,8 +21,8 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		SocketServer socketServer = new SocketServer();
-		MapHelper test = new MapHelper();
-		
+//		MapHelper mapHelper = new MapHelper();
+		ItemHelper itemHelper = new ItemHelper();
 		
 		
 		socketServer.startListening();

@@ -1,0 +1,55 @@
+[
+ {
+   "ItemID":"20",
+   "ItemName":"Big Flamed Sword",
+   "ItemType":"2",
+   "ItemStackable":"false",
+   "ItemDescription":"A big flamed sword, yay.",
+   "ItemBuyPrice":"200",
+   "ItemSellPrice":"140",
+   "ItemClass":"1",
+   "ItemModifierPower":"4",
+   "ItemModifierIntelligence":"1",
+   "ItemModifierDefense":"1",
+   "ItemModifierEndurance":"1"
+ },
+ {
+   "ItemID":"21",
+   "ItemName":"Leather Helm",
+   "ItemType":"5",
+   "ItemStackable":"false",
+   "ItemDescription":"A leather helmet.",
+   "ItemBuyPrice":"30",
+   "ItemSellPrice":"25",
+   "ItemClass":"1",
+   "ItemModifierPower":"0",
+   "ItemModifierIntelligence":"0",
+   "ItemModifierDefense":"3",
+   "ItemModifierEndurance":"3"
+ },
+ {
+   "ItemID":"22",
+   "ItemName":"Iron Helm",
+   "ItemType":"5",
+   "ItemStackable":"false",
+   "ItemDescription":"A sturdy iron helmet.",
+   "ItemBuyPrice":"68",
+   "ItemSellPrice":"60",
+   "ItemClass":"1",
+   "ItemModifierPower":"0",
+   "ItemModifierIntelligence":"0",
+   "ItemModifierDefense":"5",
+   "ItemModifierEndurance":"3"
+ },
+ {
+   "ItemID":"10",
+   "ItemName":"Health potion",
+   "ItemType":"0",
+   "ItemStackable":"true",
+   "ItemDescription":"Basic health potion. (30 points)",
+   "ItemBuyPrice":"15",
+   "ItemSellPrice":"11",
+   "ItemClass":"0",
+   "ItemModifierEffect":"0;0;30"
+ }
+]

@@ -29,7 +29,14 @@ public class MobSpawn {
 	public boolean isEnabled() {
 		return enabled;
 	}
-
+/*
+ * Carga de sqlite
+ * MobHelper
+ * Playerhelper
+ * 	ItemHelper
+ * CombatHelper
+ * MessageHelper
+ */
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}

@@ -26,11 +26,13 @@ public class Map {
 	private String COLLISION = "Collisions";
 	private String MOB_SPAWNER = "MobSpawner";
 	
+	private int mapId;
 	private Set<Tile> collisionTiles;
 	private Set<MobSpawn> spawnTiles;
 	
 	
-	public Map(String pathToFile) throws IOException{
+	public Map(String pathToFile, int mapId) throws IOException{
+		this.mapId = mapId;
 		InputStream is = MapHelper.class.getResourceAsStream(pathToFile);
 		String map = IOUtils.toString(is);
 		
@@ -53,8 +55,7 @@ public class Map {
 
 			for(int b = 0; b < amountY; b++){
 				for(int a = 0; b < amountX; b++){
-					//TODO hardcoded map code 
-					Tile tile = new Tile(1, offsetX + b, offsetY + a, true);
+					Tile tile = new Tile(mapId, offsetX + b, offsetY + a, true);
 					collisionTiles.add(tile);
 				}
 			}
@@ -78,7 +79,7 @@ public class Map {
 			for(int b = 0; b < amountY; b++){
 				for(int a = 0; b < amountX; b++){
 					//TODO hardcoded map code 
-					Tile tile = new Tile(1, offsetX + b, offsetY + a, true);
+					Tile tile = new Tile(mapId, offsetX + b, offsetY + a, true);
 					spawnGroupTiles.add(tile);
 				}
 			}
