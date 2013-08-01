@@ -21,7 +21,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		SocketServer socketServer = new SocketServer();
-//		MapHelper mapHelper = new MapHelper();
+		MapHelper mapHelper = new MapHelper();
 		ItemHelper itemHelper = new ItemHelper();
 		
 		

@@ -1,5 +1,7 @@
 package ogs.main.game.player;
 
+import ogs.main.map.Tile;
+
 import org.json.JSONObject;
 
 public class Player {
@@ -8,6 +10,7 @@ public class Player {
 	
 	private String UUID = "UUID";
 	private String name = "name";
+	private Tile currentTile;
 	
 	public Player(JSONObject json) {
 		this.UUID = json.getString(jUUID);

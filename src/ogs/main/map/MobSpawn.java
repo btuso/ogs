@@ -18,10 +18,10 @@ public class MobSpawn {
 	
 	public MobSpawn(Set<Tile> tiles, JSONObject properties) {
 		this.tiles = tiles;
-		this.mobFlag = properties.getInt(MOB_FLAG);
-		this.mobAmount = properties.getInt(MOB_AMOUNT);
-		this.spawnTime = properties.getDouble(MOB_SPAWN_TIME);
-		this.enabled = properties.getBoolean(MOB_SPAWN_ENABLED);
+//		this.mobFlag = properties.getInt(MOB_FLAG);
+//		this.mobAmount = properties.getInt(MOB_AMOUNT);
+//		this.spawnTime = properties.getDouble(MOB_SPAWN_TIME);
+//		this.enabled = properties.getBoolean(MOB_SPAWN_ENABLED);
 		
 		//register spawner with mobhelper
 	}

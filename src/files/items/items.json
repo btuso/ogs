@@ -8,10 +8,12 @@
    "ItemBuyPrice":"200",
    "ItemSellPrice":"140",
    "ItemClass":"1",
-   "ItemModifierPower":"4",
-   "ItemModifierIntelligence":"1",
-   "ItemModifierDefense":"1",
-   "ItemModifierEndurance":"1"
+   "ItemModifiers":{
+       "ItemModifierPower":"4",
+       "ItemModifierIntelligence":"1",
+       "ItemModifierDefense":"1",
+       "ItemModifierEndurance":"1"
+   }
  },
  {
    "ItemID":"21",
@@ -22,10 +24,12 @@
    "ItemBuyPrice":"30",
    "ItemSellPrice":"25",
    "ItemClass":"1",
-   "ItemModifierPower":"0",
-   "ItemModifierIntelligence":"0",
-   "ItemModifierDefense":"3",
-   "ItemModifierEndurance":"3"
+   "ItemModifiers":{
+       "ItemModifierPower":"0",
+       "ItemModifierIntelligence":"0",
+       "ItemModifierDefense":"3",
+       "ItemModifierEndurance":"3"
+   }
  },
  {
    "ItemID":"22",
@@ -36,10 +40,12 @@
    "ItemBuyPrice":"68",
    "ItemSellPrice":"60",
    "ItemClass":"1",
-   "ItemModifierPower":"0",
-   "ItemModifierIntelligence":"0",
-   "ItemModifierDefense":"5",
-   "ItemModifierEndurance":"3"
+   "ItemModifiers":{
+       "ItemModifierPower":"0",
+       "ItemModifierIntelligence":"0",
+       "ItemModifierDefense":"5",
+       "ItemModifierEndurance":"3"
+   }
  },
  {
    "ItemID":"10",
@@ -50,6 +56,10 @@
    "ItemBuyPrice":"15",
    "ItemSellPrice":"11",
    "ItemClass":"0",
-   "ItemModifierEffect":"0;0;30"
+   "ItemEffect":{
+       "Type":"0",
+       "Attribute":"0",
+       "Amount":"30"
+   }
  }
 ]

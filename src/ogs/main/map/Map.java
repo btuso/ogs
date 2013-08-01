@@ -2,8 +2,8 @@ package ogs.main.map;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import ogs.main.helpers.MapHelper;
@@ -29,6 +29,7 @@ public class Map {
 	private int mapId;
 	private Set<Tile> collisionTiles;
 	private Set<MobSpawn> spawnTiles;
+	private Set<Tile> freeTiles;
 	
 	
 	public Map(String pathToFile, int mapId) throws IOException{
@@ -36,8 +37,18 @@ public class Map {
 		InputStream is = MapHelper.class.getResourceAsStream(pathToFile);
 		String map = IOUtils.toString(is);
 		
+		initFreeTiles();
 		initCollisions(map);
 		initSpawners(map);
+	}
+	
+	private void initFreeTiles(){
+		freeTiles = new HashSet<>();
+		for(int y = 0; y < MAP_HEIGHT; y++){
+			for(int x = 0; x < MAP_WIDTH; x++){
+				freeTiles.add(new Tile(mapId, x, y));
+			}
+		}
 	}
 	
 	private void initCollisions(String map) {
@@ -56,6 +67,7 @@ public class Map {
 			for(int b = 0; b < amountY; b++){
 				for(int a = 0; b < amountX; b++){
 					Tile tile = new Tile(mapId, offsetX + b, offsetY + a, true);
+					freeTiles.remove(tile);
 					collisionTiles.add(tile);
 				}
 			}
@@ -94,5 +106,36 @@ public class Map {
 		int objectsEndIndex = map.indexOf("]", objectsStartIndex) + 1;
 		
 		return new JSONArray(map.substring(objectsStartIndex, objectsEndIndex));
+	}
+	
+	public Tile getAvailablePlayerSpawnTile() {
+		//TODO make it random
+		boolean found = false;
+		Tile tile = null;
+		Iterator<Tile> it = freeTiles.iterator();
+		while(!found && it.hasNext()){
+			tile = it.next();
+			if(!spawnTiles.contains(tile)){
+				found = true;
+			}
+		}
+		blockFreeTile(tile);
+		return tile;
+	}
+	
+	private void blockFreeTile(Tile tile) {
+		if(freeTiles.contains(tile)){
+			freeTiles.remove(tile);
+			tile.setCollide(true);
+			collisionTiles.add(tile);
+		}
+	}
+	
+	private void freeBlockedTile(Tile tile) {
+		if(collisionTiles.contains(tile)){
+			collisionTiles.remove(tile);
+			tile.setCollide(false);
+			freeTiles.add(tile);
+		}
 	}
 }

@@ -1,14 +1,19 @@
 package ogs.main.entity;
 
-public class Atributes {
+public class Attributes {
 
+		public static final String ATTRIBUTE = "Attribute";
+	
 		private int defense;
 		private int endurance;
 		private int intelligence;
 		private int power;
-		
-		public Atributes() {
-			// TODO Auto-generated constructor stub
+		//TODO make attribute a different class
+		public Attributes(int defense, int endurance, int intelligence, int power) {
+			this.defense = defense;
+			this.endurance = endurance;
+			this.intelligence = intelligence;
+			this.power = power;
 		}
 		
 		public int getDefense() {
@@ -62,4 +67,20 @@ public class Atributes {
 			increasePowerBy(1);
 		}
 		
+		public static enum Attribute {
+			DEFENSE(0),
+			ENDURANCE(1),
+			INTELLIGENCE(2),
+			POWER(3);
+			
+			private int type;
+			
+			private Attribute(int type) {
+				this.type = type;
+			}
+			
+			public int getAttribute() {
+				return type;
+			}
+		}
 }
