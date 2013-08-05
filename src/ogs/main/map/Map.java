@@ -22,12 +22,12 @@ public class Map {
 	public static String HEIGHT = "height";
 	public static String WIDTH = "width";
 	
-	private String KEY = "\"objects\":";
 	private String COLLISION = "Collisions";
 	private String MOB_SPAWNER = "MobSpawner";
 	
 	private int mapId;
 	private Set<Tile> collisionTiles;
+	private Set<Tile> entityCollisionTiles;
 	private Set<MobSpawn> spawnTiles;
 	private Set<Tile> freeTiles;
 	
@@ -36,6 +36,7 @@ public class Map {
 		this.mapId = mapId;
 		InputStream is = MapHelper.class.getResourceAsStream(pathToFile);
 		String map = IOUtils.toString(is);
+		entityCollisionTiles = new HashSet<>();
 		
 		initFreeTiles();
 		initCollisions(map);
@@ -123,19 +124,23 @@ public class Map {
 		return tile;
 	}
 	
-	private void blockFreeTile(Tile tile) {
+	public void blockFreeTile(Tile tile) {
 		if(freeTiles.contains(tile)){
 			freeTiles.remove(tile);
 			tile.setCollide(true);
-			collisionTiles.add(tile);
+			entityCollisionTiles.add(tile);
 		}
 	}
 	
-	private void freeBlockedTile(Tile tile) {
-		if(collisionTiles.contains(tile)){
-			collisionTiles.remove(tile);
+	public void freeBlockedTile(Tile tile) {
+		if(entityCollisionTiles.contains(tile)){
+			entityCollisionTiles.remove(tile);
 			tile.setCollide(false);
 			freeTiles.add(tile);
 		}
+	}
+	
+	public Set<Tile> getEntityCollisionTiles() {
+		return entityCollisionTiles;
 	}
 }

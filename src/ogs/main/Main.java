@@ -3,9 +3,9 @@
  */
 package ogs.main;
 
-import java.net.Socket;
+import java.util.HashMap;
 
-import ogs.main.helpers.ItemHelper;
+import ogs.main.helpers.ClientHelper;
 import ogs.main.helpers.MapHelper;
 import ogs.main.helpers.PlayerHelper;
 import ogs.main.server.connection.SocketServer;
@@ -16,16 +16,37 @@ import ogs.main.server.connection.SocketServer;
  */
 public class Main {
 
+	private static PlayerHelper playerHelper;
+	private static MapHelper mapHelper;
+	private static SocketServer socketServer;
+	private static ClientHelper clientHelper;
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SocketServer socketServer = new SocketServer();
-		MapHelper mapHelper = new MapHelper();
-		ItemHelper itemHelper = new ItemHelper();
-		
+		socketServer = new SocketServer();
+//		ItemHelper itemHelper = new ItemHelper();
+		mapHelper = new MapHelper();
+		playerHelper = new PlayerHelper();
+		clientHelper = new ClientHelper();
 		
 		socketServer.startListening();
 	}
 
+	public static PlayerHelper getPlayerHelper() {
+		return playerHelper;
+	}
+
+	public static MapHelper getMapHelper() {
+		return mapHelper;
+	}
+
+	public static SocketServer getSocketServer() {
+		return socketServer;
+	}
+	
+	public static ClientHelper getClientHelper() {
+		return clientHelper;
+	}
 }

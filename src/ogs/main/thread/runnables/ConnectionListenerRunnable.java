@@ -23,7 +23,6 @@ public class ConnectionListenerRunnable implements Runnable{
 				 i++;
 				 System.out.println("Esperando al cliente "+i);
 	          Thread newConnectedClient = threadFactory.makeNewConnectionRunnableThread(serverSocket.accept());
-	          System.out.println("Nuevo cliente, arrancandolo");
 	          newConnectedClient.start();
 			 }
 	     } catch (IOException e) {

@@ -62,5 +62,40 @@ public static String ITEM_EFFECT = "ItemEffect";
 	public int hashCode() {
 		return id;
 	}
+
+	public ItemType getType() {
+		return type;
+	}
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public boolean isStackable() {
+		return stackable;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public Price getPrice() {
+		return price;
+	}
+
+	public ClassType getClassType() {
+		return classType;
+	}
+
+	public ItemModifiers getModifiers() {
+		return modifiers;
+	}
+
+	public ItemEffect getEffect() {
+		return effect;
+	}
 }
 

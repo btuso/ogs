@@ -1,29 +1,30 @@
 package ogs.main.helpers;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 
 import ogs.main.game.player.Player;
+import ogs.main.server.protocol.JSONClientMessageFlags;
 
-import org.json.JSONObject;
+public class PlayerHelper implements JSONClientMessageFlags{
 
-public class PlayerHelper {
-
-	Map<String,Player> players = null;
+	
+	HashSet<Player> players;
 	
 	
 	public PlayerHelper() {
-		players = new HashMap<String, Player>();
+		players = new HashSet<Player>();
 	}
 	
-	public void registerPlayer(JSONObject json){
-		Player player = new Player(json);
+	public void registerPlayer(String userId, String username){
+		Player player = new Player(userId, username);
 		
-		//TODO - Replace generic naming
-		json.put(Player.jName, "Player-"+(players.size()+1));
-		players.put(Player.jUUID, player);
-		
-		System.out.println("New player registered: "+json.toString(1));
+		players.add(player);
+
+		MANDAR BROADCAST
+		System.out.println("New player registered: "+username);
 	}
-	
+
+	public HashSet<Player> getPlayers() {
+		return players;
+	}
 }
